@@ -35,8 +35,13 @@ getFib(10)
 let newList = document.getElementById("newList");
 let innerList = document.getElementById("innerList");
 let content = []
-
-newList.addEventListener('click',function(){
+console.log(JSON.parse(localStorage.getItem('list')))
+if(JSON.parse(localStorage.getItem('list')) == null){
+    memorandum()
+}else if(JSON.parse(localStorage.getItem('list')).length == 0){
+    memorandum()
+}else{
+    console.log(JSON.parse(localStorage.getItem('list')).length)
     let contentDiv2 = document.createElement("DIV");
     let contentList = document.createElement("input");
     let deleteList = document.createElement("input");
@@ -44,74 +49,173 @@ newList.addEventListener('click',function(){
     let confineList = document.createElement("input");
     let cancelList = document.createElement("input");
 
-    content.push(innerList.value);
-    localStorage.setItem('list',JSON.stringify(content));
-    for(let i = 0; i < content.length; i++){
-        
-        contentDiv.appendChild(contentDiv2)
-        contentDiv2.id = "contentDiv2"+ [i];
+    for(let k = 0; k < JSON.parse(localStorage.getItem('list')).length; k++){
+        if(JSON.parse(localStorage.getItem('list')).length !== 0){
+            console.log(k)
+            contentDiv.appendChild(contentDiv2)
+            contentDiv2.id = "contentDiv2"+ [k];
 
-        contentDiv2.appendChild(contentList)
-        contentList.id = "contentList" + [i];
-        contentList.className = "contentList";
-        contentList.disabled = true;
-
-        contentDiv2.appendChild(deleteList)
-        deleteList.id = "deleteList" + [i];
-        deleteList.className = "deleteList";
-        deleteList.type = "button";
-        deleteList.value = "刪除";
-        contentList.value = JSON.parse(localStorage.getItem('list'))[i];
-        let listDelete = document.getElementById("deleteList" + [i]);
-        listDelete.onclick = contentDelete
-
-        contentDiv2.appendChild(changeList)
-        changeList.id = "changeList" + [i];
-        changeList.type = "button";
-        changeList.value = "編輯";
-        changeList.style.display="block";
-        changeList.onclick = changebtn
-
-        contentDiv2.appendChild(confineList)
-        confineList.id = "confineList"  + [i];
-        confineList.type = "button";
-        confineList.value = "確定";
-        confineList.style.display="none";
-        confineList.onclick = confinebtn
-
-        contentDiv2.appendChild(cancelList)
-        cancelList.id = "confineList"  + [i];
-        cancelList.type = "button";
-        cancelList.value = "取消";
-        cancelList.style.display="none";
-        cancelList.onclick = cancelbtn
-
-        function contentDelete(i){
-            // let number = listDelete.id.slice(-1)
-            let number = [i]
-            console.log(number)
-            content.splice(number,1);
-            localStorage.setItem('list',JSON.stringify(content));
-            listDelete.parentNode.remove();
-        }
-        function changebtn(){
-            changeList.style.display="none";
-            confineList.style.display="block";
-            cancelList.style.display="block";
-            contentList.disabled = false;
-
-        }
-        function confinebtn(){
-            changeList.style.display="block";
-            confineList.style.display="none";
-            cancelList.style.display="none";
+            contentDiv2.appendChild(contentList)
+            contentList.id = "contentList" + [k];
+            contentList.className = "contentList";
             contentList.disabled = true;
-        }
-        function cancelbtn(){
+            let listContent = document.getElementById("contentList" + [k]);
+
+            contentDiv2.appendChild(deleteList)
+            deleteList.id = "deleteList" + [k];
+            deleteList.className = "deleteList";
+            deleteList.type = "button";
+            deleteList.value = "刪除";
+            contentList.value = JSON.parse(localStorage.getItem('list'))[k];
+            let listDelete = document.getElementById("deleteList" + [k]);
+            listDelete.onclick = contentDelete
+
+            contentDiv2.appendChild(changeList)
+            changeList.id = "changeList" + [k];
+            changeList.type = "button";
+            changeList.value = "編輯";
             changeList.style.display="block";
+            changeList.onclick = changebtn
+
+            contentDiv2.appendChild(confineList)
+            confineList.id = "confineList"  + [k];
+            confineList.type = "button";
+            confineList.value = "確定";
             confineList.style.display="none";
+            confineList.onclick = confinebtn
+
+            contentDiv2.appendChild(cancelList)
+            cancelList.id = "confineList"  + [k];
+            cancelList.type = "button";
+            cancelList.value = "取消";
             cancelList.style.display="none";
-            contentList.disabled = true;
+            cancelList.onclick = cancelbtn
+
+            function contentDelete(){
+                for(let j = 0; j < content.length; j++){
+                    if(listContent.value == JSON.parse(localStorage.getItem('list'))[j]){
+                        content.splice(j,1);
+                        localStorage.setItem('list',JSON.stringify(content));
+                        listDelete.parentNode.remove();
+                    }
+                }
+            }       
+            function changebtn(){
+                changeList.style.display="none";
+                confineList.style.display="block";
+                cancelList.style.display="block";
+                contentList.disabled = false; 
+            }
+            function confinebtn(){
+                changeList.style.display="block";
+                confineList.style.display="none";
+                cancelList.style.display="none";
+                contentList.disabled = true;
+                content.splice(k,1);
+                localStorage.setItem('list',JSON.stringify(content));
+                let replace = content.splice(i,0,listContent.value);
+                content.push.replace;
+                localStorage.setItem('list',JSON.stringify(content));
+            }
+            function cancelbtn(){
+                changeList.style.display="block";
+                confineList.style.display="none";
+                cancelList.style.display="none";
+                contentList.disabled = true;
+                listContent.value = JSON.parse(localStorage.getItem('list'))[i];
+            }
         }
     }
-})
+}
+
+function memorandum(){
+    newList.addEventListener('click',function(){
+        if(innerList.value != ""){
+            let contentDiv2 = document.createElement("DIV");
+            let contentList = document.createElement("input");
+            let deleteList = document.createElement("input");
+            let changeList = document.createElement("input");
+            let confineList = document.createElement("input");
+            let cancelList = document.createElement("input");
+    
+            content.push(innerList.value);
+            localStorage.setItem('list',JSON.stringify(content));
+            
+            for(let i = 0; i < content.length; i++){
+                
+                contentDiv.appendChild(contentDiv2)
+                contentDiv2.id = "contentDiv2"+ [i];
+    
+                contentDiv2.appendChild(contentList)
+                contentList.id = "contentList" + [i];
+                contentList.className = "contentList";
+                contentList.disabled = true;
+                let listContent = document.getElementById("contentList" + [i]);
+    
+                contentDiv2.appendChild(deleteList)
+                deleteList.id = "deleteList" + [i];
+                deleteList.className = "deleteList";
+                deleteList.type = "button";
+                deleteList.value = "刪除";
+                contentList.value = JSON.parse(localStorage.getItem('list'))[i];
+                let listDelete = document.getElementById("deleteList" + [i]);
+                listDelete.onclick = contentDelete
+    
+                contentDiv2.appendChild(changeList)
+                changeList.id = "changeList" + [i];
+                changeList.type = "button";
+                changeList.value = "編輯";
+                changeList.style.display="block";
+                changeList.onclick = changebtn
+    
+                contentDiv2.appendChild(confineList)
+                confineList.id = "confineList"  + [i];
+                confineList.type = "button";
+                confineList.value = "確定";
+                confineList.style.display="none";
+                confineList.onclick = confinebtn
+    
+                contentDiv2.appendChild(cancelList)
+                cancelList.id = "confineList"  + [i];
+                cancelList.type = "button";
+                cancelList.value = "取消";
+                cancelList.style.display="none";
+                cancelList.onclick = cancelbtn
+    
+                function contentDelete(){
+                    for(let j = 0; j < content.length; j++){
+                        if(listContent.value == JSON.parse(localStorage.getItem('list'))[j]){
+                            content.splice(j,1);
+                            localStorage.setItem('list',JSON.stringify(content));
+                            listDelete.parentNode.remove();
+                        }
+                    }
+                }       
+                function changebtn(){
+                    changeList.style.display="none";
+                    confineList.style.display="block";
+                    cancelList.style.display="block";
+                    contentList.disabled = false; 
+                }
+                function confinebtn(){
+                    changeList.style.display="block";
+                    confineList.style.display="none";
+                    cancelList.style.display="none";
+                    contentList.disabled = true;
+                    content.splice(i,1);
+                    localStorage.setItem('list',JSON.stringify(content));
+                    let replace = content.splice(i,0,listContent.value);
+                    content.push.replace;
+                    localStorage.setItem('list',JSON.stringify(content));
+                }
+                function cancelbtn(){
+                    changeList.style.display="block";
+                    confineList.style.display="none";
+                    cancelList.style.display="none";
+                    contentList.disabled = true;
+                    listContent.value = JSON.parse(localStorage.getItem('list'))[i];
+                }
+            }
+        }
+    })
+}
