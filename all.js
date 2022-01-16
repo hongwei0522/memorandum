@@ -95,7 +95,7 @@ if(JSON.parse(localStorage.getItem('list')) == null){
             cancelList.id = "cancelList"  + [k];
             cancelList.className = "cancelList";
             cancelList.type = "image";
-            cancelList.src = 'https://github.com/hongwei0522/gh-pages/blob/memorandum/picture/%E5%8F%89%E5%8F%89.png?raw=true';
+            cancelList.src = 'https://github.com/hongwei0522/gh-pages/blob/memorandum/picture/%E5%8F%89%E5%8F%892.png?raw=true';
             cancelList.style.display="none";
             cancelList.onclick = cancelbtn
 
