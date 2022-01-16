@@ -35,7 +35,7 @@ getFib(10)
 let newList = document.getElementById("newList");
 let innerList = document.getElementById("innerList");
 let content = []
-console.log(JSON.parse(localStorage.getItem('list')))
+
 if(JSON.parse(localStorage.getItem('list')) == null){
     memorandum()
 }else if(JSON.parse(localStorage.getItem('list')).length == 0){
@@ -49,17 +49,21 @@ if(JSON.parse(localStorage.getItem('list')) == null){
     let confineList = document.createElement("input");
     let cancelList = document.createElement("input");
 
-    for(let k = 0; k < JSON.parse(localStorage.getItem('list')).length; k++){
-        if(JSON.parse(localStorage.getItem('list')).length !== 0){
+    if(JSON.parse(localStorage.getItem('list')).length !== 0){
+        for(let k = 0; k < JSON.parse(localStorage.getItem('list')).length; k++){
             console.log(k)
             contentDiv.appendChild(contentDiv2)
             contentDiv2.id = "contentDiv2"+ [k];
+            contentDiv2.className = "contentDiv2";
 
             contentDiv2.appendChild(contentList)
             contentList.id = "contentList" + [k];
             contentList.className = "contentList";
             contentList.disabled = true;
             let listContent = document.getElementById("contentList" + [k]);
+
+            console.log(contentList.id)
+
 
             contentDiv2.appendChild(deleteList)
             deleteList.id = "deleteList" + [k];
@@ -92,7 +96,8 @@ if(JSON.parse(localStorage.getItem('list')) == null){
             cancelList.onclick = cancelbtn
 
             function contentDelete(){
-                for(let j = 0; j < content.length; j++){
+                console.log(content.length)
+                for(let j = 0; j < JSON.parse(localStorage.getItem('list')).length; j++){
                     if(listContent.value == JSON.parse(localStorage.getItem('list'))[j]){
                         content.splice(j,1);
                         localStorage.setItem('list',JSON.stringify(content));
@@ -125,7 +130,8 @@ if(JSON.parse(localStorage.getItem('list')) == null){
                 listContent.value = JSON.parse(localStorage.getItem('list'))[i];
             }
         }
-    }
+        memorandum()
+    }    
 }
 
 function memorandum(){
@@ -145,6 +151,7 @@ function memorandum(){
                 
                 contentDiv.appendChild(contentDiv2)
                 contentDiv2.id = "contentDiv2"+ [i];
+                contentDiv2.className = "contentDiv2";
     
                 contentDiv2.appendChild(contentList)
                 contentList.id = "contentList" + [i];
@@ -157,12 +164,14 @@ function memorandum(){
                 deleteList.className = "deleteList";
                 deleteList.type = "button";
                 deleteList.value = "刪除";
+                deleteList.style.backgroundImage = 
                 contentList.value = JSON.parse(localStorage.getItem('list'))[i];
                 let listDelete = document.getElementById("deleteList" + [i]);
                 listDelete.onclick = contentDelete
     
                 contentDiv2.appendChild(changeList)
                 changeList.id = "changeList" + [i];
+                changeList.className = "chageList";
                 changeList.type = "button";
                 changeList.value = "編輯";
                 changeList.style.display="block";
@@ -170,6 +179,7 @@ function memorandum(){
     
                 contentDiv2.appendChild(confineList)
                 confineList.id = "confineList"  + [i];
+                confineList.className = "confineList";
                 confineList.type = "button";
                 confineList.value = "確定";
                 confineList.style.display="none";
@@ -195,7 +205,7 @@ function memorandum(){
                     changeList.style.display="none";
                     confineList.style.display="block";
                     cancelList.style.display="block";
-                    contentList.disabled = false; 
+                    contentList.disabled = false;
                 }
                 function confinebtn(){
                     changeList.style.display="block";
