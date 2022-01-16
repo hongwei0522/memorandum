@@ -102,9 +102,23 @@ table {
 }
 .deleteList{
     margin-right: 20px;
+    width: 25px;
+    height: 25px;
+}
+.changeList{
+    margin-right: 20px;
+    width: 25px;
+    height: 25px;
 }
 .confineList{
     margin-right: 20px;
+    width: 25px;
+    height: 25px;
+}
+.cancelList{
+    margin-right: 20px;
+    width: 25px;
+    height: 25px;
 }
 
 @media (max-width: 479px){

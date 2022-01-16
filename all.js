@@ -51,47 +51,51 @@ if(JSON.parse(localStorage.getItem('list')) == null){
 
     if(JSON.parse(localStorage.getItem('list')).length !== 0){
         for(let k = 0; k < JSON.parse(localStorage.getItem('list')).length; k++){
-            console.log(k)
+            content.push(JSON.parse(localStorage.getItem('list'))[k])
+            
             contentDiv.appendChild(contentDiv2)
             contentDiv2.id = "contentDiv2"+ [k];
             contentDiv2.className = "contentDiv2";
+            console.log(contentDiv2.id)
+            console.log(contentDiv2)
 
             contentDiv2.appendChild(contentList)
             contentList.id = "contentList" + [k];
             contentList.className = "contentList";
             contentList.disabled = true;
             let listContent = document.getElementById("contentList" + [k]);
-
-            console.log(contentList.id)
-
+            
 
             contentDiv2.appendChild(deleteList)
             deleteList.id = "deleteList" + [k];
             deleteList.className = "deleteList";
-            deleteList.type = "button";
-            deleteList.value = "刪除";
+            deleteList.type = "image";
+            deleteList.src = 'https://github.com/hongwei0522/gh-pages/blob/memorandum/picture/%E5%9E%83%E5%9C%BE%E6%A1%B6-%E9%BB%91.png?raw=true';
             contentList.value = JSON.parse(localStorage.getItem('list'))[k];
             let listDelete = document.getElementById("deleteList" + [k]);
             listDelete.onclick = contentDelete
 
             contentDiv2.appendChild(changeList)
             changeList.id = "changeList" + [k];
-            changeList.type = "button";
-            changeList.value = "編輯";
+            changeList.className = "changeList";
+            changeList.type = "image";
+            changeList.src = 'https://github.com/hongwei0522/gh-pages/blob/memorandum/picture/%E9%89%9B%E7%AD%86-%E9%BB%91.png?raw=true';
             changeList.style.display="block";
             changeList.onclick = changebtn
 
             contentDiv2.appendChild(confineList)
             confineList.id = "confineList"  + [k];
-            confineList.type = "button";
-            confineList.value = "確定";
+            confineList.className = "confineList";
+            confineList.type = "image";
+            confineList.src = 'https://github.com/hongwei0522/gh-pages/blob/memorandum/picture/%E5%8B%BE%E5%8B%BE.png?raw=true';
             confineList.style.display="none";
             confineList.onclick = confinebtn
 
             contentDiv2.appendChild(cancelList)
-            cancelList.id = "confineList"  + [k];
-            cancelList.type = "button";
-            cancelList.value = "取消";
+            cancelList.id = "cancelList"  + [k];
+            cancelList.className = "cancelList";
+            cancelList.type = "image";
+            cancelList.src = 'https://github.com/hongwei0522/gh-pages/blob/memorandum/picture/%E5%8F%89%E5%8F%89.png?raw=true';
             cancelList.style.display="none";
             cancelList.onclick = cancelbtn
 
@@ -162,33 +166,33 @@ function memorandum(){
                 contentDiv2.appendChild(deleteList)
                 deleteList.id = "deleteList" + [i];
                 deleteList.className = "deleteList";
-                deleteList.type = "button";
-                deleteList.value = "刪除";
-                deleteList.style.backgroundImage = 
+                deleteList.type = "image";
+                deleteList.src = 'https://github.com/hongwei0522/gh-pages/blob/memorandum/picture/%E5%9E%83%E5%9C%BE%E6%A1%B6-%E9%BB%91.png?raw=true';
                 contentList.value = JSON.parse(localStorage.getItem('list'))[i];
                 let listDelete = document.getElementById("deleteList" + [i]);
                 listDelete.onclick = contentDelete
     
                 contentDiv2.appendChild(changeList)
                 changeList.id = "changeList" + [i];
-                changeList.className = "chageList";
-                changeList.type = "button";
-                changeList.value = "編輯";
+                changeList.className = "changeList";
+                changeList.type = "image";
+                changeList.src = 'https://github.com/hongwei0522/gh-pages/blob/memorandum/picture/%E9%89%9B%E7%AD%86-%E9%BB%91.png?raw=true';
                 changeList.style.display="block";
                 changeList.onclick = changebtn
     
                 contentDiv2.appendChild(confineList)
                 confineList.id = "confineList"  + [i];
                 confineList.className = "confineList";
-                confineList.type = "button";
-                confineList.value = "確定";
+                confineList.type = "image";
+                confineList.src = 'https://github.com/hongwei0522/gh-pages/blob/memorandum/picture/%E5%8B%BE%E5%8B%BE.png?raw=true';
                 confineList.style.display="none";
                 confineList.onclick = confinebtn
     
                 contentDiv2.appendChild(cancelList)
-                cancelList.id = "confineList"  + [i];
-                cancelList.type = "button";
-                cancelList.value = "取消";
+                cancelList.id = "cancelList"  + [i];
+                cancelList.className = "cancelList";
+                cancelList.type = "image";
+                cancelList.src = 'https://github.com/hongwei0522/gh-pages/blob/memorandum/picture/%E5%8F%89%E5%8F%89.png?raw=true';
                 cancelList.style.display="none";
                 cancelList.onclick = cancelbtn
     
