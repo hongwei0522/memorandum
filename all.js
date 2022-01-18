@@ -34,30 +34,33 @@ getFib(10)
 //newList
 let newList = document.getElementById("newList");
 let innerList = document.getElementById("innerList");
+let contentDiv = document.getElementById("contentDiv");
 let content = []
+let contentList = document.createElement("input");
+let deleteList = document.createElement("input");
+let changeList = document.createElement("input");
+let confineList = document.createElement("input");
+let cancelList = document.createElement("input");
 
 if(JSON.parse(localStorage.getItem('list')) == null){
     memorandum()
 }else if(JSON.parse(localStorage.getItem('list')).length == 0){
     memorandum()
 }else{
-    console.log(JSON.parse(localStorage.getItem('list')).length)
-    let contentDiv2 = document.createElement("DIV");
-    let contentList = document.createElement("input");
-    let deleteList = document.createElement("input");
-    let changeList = document.createElement("input");
-    let confineList = document.createElement("input");
-    let cancelList = document.createElement("input");
-
     if(JSON.parse(localStorage.getItem('list')).length !== 0){
         for(let k = 0; k < JSON.parse(localStorage.getItem('list')).length; k++){
             content.push(JSON.parse(localStorage.getItem('list'))[k])
             
+            let contentDiv2 = document.createElement("DIV");
+            let contentList = document.createElement("input");
+            let deleteList = document.createElement("input");
+            let changeList = document.createElement("input");
+            let confineList = document.createElement("input");
+            let cancelList = document.createElement("input");
+
             contentDiv.appendChild(contentDiv2)
             contentDiv2.id = "contentDiv2"+ [k];
             contentDiv2.className = "contentDiv2";
-            console.log(contentDiv2.id)
-            console.log(contentDiv2)
 
             contentDiv2.appendChild(contentList)
             contentList.id = "contentList" + [k];
@@ -87,7 +90,7 @@ if(JSON.parse(localStorage.getItem('list')) == null){
             confineList.id = "confineList"  + [k];
             confineList.className = "confineList";
             confineList.type = "image";
-            confineList.src = 'https://github.com/hongwei0522/gh-pages/blob/memorandum/picture/%E5%8B%BE%E5%8B%BE.png?raw=true';
+            confineList.src = 'https://github.com/hongwei0522/gh-pages/blob/memorandum/picture/%E7%B4%85%E8%89%B2%E5%8B%BE%E5%8B%BE.png?raw=true';
             confineList.style.display="none";
             confineList.onclick = confinebtn
 
@@ -95,9 +98,12 @@ if(JSON.parse(localStorage.getItem('list')) == null){
             cancelList.id = "cancelList"  + [k];
             cancelList.className = "cancelList";
             cancelList.type = "image";
-            cancelList.src = 'https://github.com/hongwei0522/gh-pages/blob/memorandum/picture/%E5%8F%89%E5%8F%892.png?raw=true';
+            cancelList.src = 'https://github.com/hongwei0522/gh-pages/blob/memorandum/picture/%E8%97%8D%E8%89%B2XX.png?raw=true';
             cancelList.style.display="none";
             cancelList.onclick = cancelbtn
+            
+            
+
 
             function contentDelete(){
                 console.log(content.length)
@@ -122,7 +128,7 @@ if(JSON.parse(localStorage.getItem('list')) == null){
                 contentList.disabled = true;
                 content.splice(k,1);
                 localStorage.setItem('list',JSON.stringify(content));
-                let replace = content.splice(i,0,listContent.value);
+                let replace = content.splice(k,0,listContent.value);
                 content.push.replace;
                 localStorage.setItem('list',JSON.stringify(content));
             }
@@ -131,7 +137,7 @@ if(JSON.parse(localStorage.getItem('list')) == null){
                 confineList.style.display="none";
                 cancelList.style.display="none";
                 contentList.disabled = true;
-                listContent.value = JSON.parse(localStorage.getItem('list'))[i];
+                listContent.value = JSON.parse(localStorage.getItem('list'))[k];
             }
         }
         memorandum()
