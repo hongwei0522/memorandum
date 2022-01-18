@@ -36,11 +36,6 @@ let newList = document.getElementById("newList");
 let innerList = document.getElementById("innerList");
 let contentDiv = document.getElementById("contentDiv");
 let content = []
-let contentList = document.createElement("input");
-let deleteList = document.createElement("input");
-let changeList = document.createElement("input");
-let confineList = document.createElement("input");
-let cancelList = document.createElement("input");
 
 if(JSON.parse(localStorage.getItem('list')) == null){
     memorandum()
@@ -73,7 +68,7 @@ if(JSON.parse(localStorage.getItem('list')) == null){
             deleteList.id = "deleteList" + [k];
             deleteList.className = "deleteList";
             deleteList.type = "image";
-            deleteList.src = 'https://github.com/hongwei0522/gh-pages/blob/memorandum/picture/%E5%9E%83%E5%9C%BE%E6%A1%B6-%E9%BB%91.png?raw=true';
+            deleteList.src = 'https://github.com/hongwei0522/memorandum/blob/memorandum/picture/%E5%9E%83%E5%9C%BE%E6%A1%B6-%E9%BB%91.png?raw=true';
             contentList.value = JSON.parse(localStorage.getItem('list'))[k];
             let listDelete = document.getElementById("deleteList" + [k]);
             listDelete.onclick = contentDelete
@@ -82,7 +77,7 @@ if(JSON.parse(localStorage.getItem('list')) == null){
             changeList.id = "changeList" + [k];
             changeList.className = "changeList";
             changeList.type = "image";
-            changeList.src = 'https://github.com/hongwei0522/gh-pages/blob/memorandum/picture/%E9%89%9B%E7%AD%86-%E9%BB%91.png?raw=true';
+            changeList.src = 'https://github.com/hongwei0522/memorandum/blob/memorandum/picture/%E9%89%9B%E7%AD%86-%E9%BB%91.png?raw=true';
             changeList.style.display="block";
             changeList.onclick = changebtn
 
@@ -90,7 +85,7 @@ if(JSON.parse(localStorage.getItem('list')) == null){
             confineList.id = "confineList"  + [k];
             confineList.className = "confineList";
             confineList.type = "image";
-            confineList.src = 'https://github.com/hongwei0522/gh-pages/blob/memorandum/picture/%E7%B4%85%E8%89%B2%E5%8B%BE%E5%8B%BE.png?raw=true';
+            confineList.src = 'https://github.com/hongwei0522/memorandum/blob/memorandum/picture/%E7%B4%85%E8%89%B2%E5%8B%BE%E5%8B%BE.png?raw=true';
             confineList.style.display="none";
             confineList.onclick = confinebtn
 
@@ -98,7 +93,7 @@ if(JSON.parse(localStorage.getItem('list')) == null){
             cancelList.id = "cancelList"  + [k];
             cancelList.className = "cancelList";
             cancelList.type = "image";
-            cancelList.src = 'https://github.com/hongwei0522/gh-pages/blob/memorandum/picture/%E8%97%8D%E8%89%B2XX.png?raw=true';
+            cancelList.src = 'https://github.com/hongwei0522/memorandum/blob/memorandum/picture/%E8%97%8D%E8%89%B2XX.png?raw=true';
             cancelList.style.display="none";
             cancelList.onclick = cancelbtn
             
