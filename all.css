@@ -127,6 +127,18 @@ table {
     .innerList{
         width: 250px;
         border-radius: 3% / 50%;
-
+        font-size: 30px;
+    }
+    .newList{
+        font-size: 24px;
+    }
+    .contentList{
+        width: 200px;
+        font-size: 18px;
+        padding-left: 12px;
+        background-color: #aef3f3;
+        border: none;
+        border-radius: 1% / 50%;
+        margin-right: 20px;
     }
 }
