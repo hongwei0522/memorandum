@@ -101,7 +101,6 @@ if(JSON.parse(localStorage.getItem('list')) == null){
 
 
             function contentDelete(){
-                console.log(content.length)
                 for(let j = 0; j < JSON.parse(localStorage.getItem('list')).length; j++){
                     if(listContent.value == JSON.parse(localStorage.getItem('list'))[j]){
                         content.splice(j,1);
