@@ -167,7 +167,7 @@ function memorandum(){
                 deleteList.id = "deleteList" + [i];
                 deleteList.className = "deleteList";
                 deleteList.type = "image";
-                deleteList.src = 'https://github.com/hongwei0522/gh-pages/blob/memorandum/picture/%E5%9E%83%E5%9C%BE%E6%A1%B6-%E9%BB%91.png?raw=true';
+                deleteList.src = 'https://github.com/hongwei0522/memorandum/blob/memorandum/picture/%E5%9E%83%E5%9C%BE%E6%A1%B6-%E9%BB%91.png?raw=true';
                 contentList.value = JSON.parse(localStorage.getItem('list'))[i];
                 let listDelete = document.getElementById("deleteList" + [i]);
                 listDelete.onclick = contentDelete
@@ -176,7 +176,7 @@ function memorandum(){
                 changeList.id = "changeList" + [i];
                 changeList.className = "changeList";
                 changeList.type = "image";
-                changeList.src = 'https://github.com/hongwei0522/gh-pages/blob/memorandum/picture/%E9%89%9B%E7%AD%86-%E9%BB%91.png?raw=true';
+                changeList.src = 'https://github.com/hongwei0522/memorandum/blob/memorandum/picture/%E9%89%9B%E7%AD%86-%E9%BB%91.png?raw=true';
                 changeList.style.display="block";
                 changeList.onclick = changebtn
     
@@ -184,7 +184,7 @@ function memorandum(){
                 confineList.id = "confineList"  + [i];
                 confineList.className = "confineList";
                 confineList.type = "image";
-                confineList.src = 'https://github.com/hongwei0522/gh-pages/blob/memorandum/picture/%E5%8B%BE%E5%8B%BE.png?raw=true';
+                confineList.src = 'https://github.com/hongwei0522/memorandum/blob/memorandum/picture/%E7%B4%85%E8%89%B2%E5%8B%BE%E5%8B%BE.png?raw=true';
                 confineList.style.display="none";
                 confineList.onclick = confinebtn
     
@@ -192,7 +192,7 @@ function memorandum(){
                 cancelList.id = "cancelList"  + [i];
                 cancelList.className = "cancelList";
                 cancelList.type = "image";
-                cancelList.src = 'https://github.com/hongwei0522/gh-pages/blob/memorandum/picture/%E5%8F%89%E5%8F%89.png?raw=true';
+                cancelList.src = 'https://github.com/hongwei0522/memorandum/blob/memorandum/picture/%E8%97%8D%E8%89%B2XX.png?raw=true';
                 cancelList.style.display="none";
                 cancelList.onclick = cancelbtn
     
