@@ -13,7 +13,6 @@
 // }
 // getFib(2)
 
-
 //第一題 x(0) x(1)問題
 function getFib(x){
     let a = [];

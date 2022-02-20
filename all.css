@@ -48,18 +48,12 @@ table {
 }
 
 
-
-
-
-
 .little{
     text-align: center;
     letter-spacing: 8px;
     font-size: 60px;
     margin: 50px 0 50px 0;
 }
-
-
 
 .newlist{
     text-align: center;
@@ -80,8 +74,6 @@ table {
     border-radius: 5% / 50%;
     margin-left: 20px;
 }
-
-
 
 .content{
     border-color: black;
